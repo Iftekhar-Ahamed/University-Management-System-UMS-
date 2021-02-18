@@ -410,15 +410,15 @@ void seeteacherdataFrame(struct teacher ob)
     system("cls");
     gotoxy(48, 6);
     printf(" ***SEE INFORMATION****");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 22; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
     gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    printf("  #######################              #######################   \n");
 
     gotoxy(34, 10);
     printf("[1] NAME          : %s %s\n", ob.name1, ob.name2);
@@ -451,15 +451,15 @@ void seestudentdataFrame(struct student ob)
     system("cls");
     gotoxy(48, 6);
     printf(" ***SEE INFORMATION****");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 22; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
     gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    printf("  #######################              #######################   \n");
 
     gotoxy(34, 10);
     printf("[1] NAME          : %s %s\n", ob.name1, ob.name2);
@@ -607,30 +607,29 @@ void after_delete_frame(char id[], char name1[], char name2[], char gender[], ch
 void want_to_frame_front()
 {
     system("cls");
-    gotoxy(34, 6);
+    gotoxy(34, 9);
     printf("######################            ####################\n");
     for (int i = 0; i < 8; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(34, 15);
+    gotoxy(34, 18);
     printf("#####################             ###################\n");
-    gotoxy(50, 9);
+    gotoxy(50, 12);
     printf("  DO YOU WANT TO SAVE?");
 }
 void h_light_want_to_save_menu(int option)
 {
-    gotoxy(56, 11);
+    gotoxy(56, 14);
     printf("YES      ");
-    gotoxy(56, 12);
+    gotoxy(56, 15);
     printf("NO       ");
-    gotoxy(51, 14);
     switch (option)
     {
     case 1:
-        gotoxy(56, 11);
+        gotoxy(56, 14);
         printf("-> SAVE  ");
         break;
     case 2:
-        gotoxy(56, 12);
+        gotoxy(56, 15);
         printf("-> CANCEL");
         break;
     }
@@ -743,25 +742,25 @@ bool wantTodeleteframe()
 void tdataentryframe()
 {
     system("cls");
-    gotoxy(47, 5);
+    gotoxy(50, 5);
     puts("**TEACHER DATA ENTRY**");
-    gotoxy(25, 3);
+    gotoxy(28, 3);
     printf("##########################             ########################\n");
     for (int i = 0; i < 19; i++)
-        printf("\t\t\t#\t\t\t\t\t\t\t\t#\n");
-    gotoxy(25, 23);
+        printf("\t\t\t   #\t\t\t\t\t\t\t\t   #\n");
+    gotoxy(28, 23);
     printf(" #########################             ####################### \n");
 }
 void Sdataentryframe()
 {
     system("cls");
-    gotoxy(47, 5);
+    gotoxy(50, 5);
     puts("**STUDENT DATA ENTRY**");
-    gotoxy(25, 3);
+    gotoxy(28, 3);
     printf("##########################             ########################\n");
     for (int i = 0; i < 18; i++)
-        printf("\t\t\t#\t\t\t\t\t\t\t\t#\n");
-    gotoxy(25, 22);
+        printf("\t\t\t   #\t\t\t\t\t\t\t\t   #\n");
+    gotoxy(28, 22);
     printf(" #########################             ####################### \n");
 }
 void Edataentryframe()
@@ -769,11 +768,11 @@ void Edataentryframe()
     system("cls");
     gotoxy(47, 5);
     puts("**EMPLOYEE DATA ENTRY**");
-    gotoxy(25, 3);
+    gotoxy(28, 3);
     printf("##########################             ########################\n");
     for (int i = 0; i < 19; i++)
-        printf("\t\t\t#\t\t\t\t\t\t\t\t#\n");
-    gotoxy(25, 23);
+        printf("\t\t\t   #\t\t\t\t\t\t\t\t   #\n");
+    gotoxy(28, 23);
     printf(" #########################             ####################### \n");
 }
 int enter_n_course_frame()
@@ -958,32 +957,31 @@ void update_course_frame(struct subject ob[], int n)
 void try_agin_frame()
 {
     system("cls");
-    gotoxy(34, 6);
+    gotoxy(34, 9);
     printf("######################            ####################\n");
     for (int i = 0; i < 8; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(34, 15);
+    gotoxy(34, 18);
     printf("#####################             ###################\n");
-    gotoxy(45, 8);
+    gotoxy(45, 11);
     printf("OH!!NO!!WRONG USERID AND PASSWORD!");
-    gotoxy(50, 10);
+    gotoxy(50, 13);
     printf("DO YOU WANT TO TRY AGIN?");
 }
 void h_light_try_agin_menu(int option)
 {
-    gotoxy(56, 12);
+    gotoxy(56, 15);
     printf("YES        ");
-    gotoxy(56, 13);
+    gotoxy(56, 16);
     printf("NO         ");
-    gotoxy(51, 14);
     switch (option)
     {
     case 1:
-        gotoxy(56, 12);
+        gotoxy(56, 15);
         printf("-> Try AGIN");
         break;
     case 2:
-        gotoxy(56, 13);
+        gotoxy(56, 16);
         printf("-> CANCEL  ");
         break;
     }
@@ -1330,32 +1328,32 @@ void h_light_student_function_menu(int option)
 void longinframe(char pass[], long long int *userid)
 {
     system("cls");
-    gotoxy(55, 8);
+    gotoxy(55, 10);
     printf("PLEASE LOGIN");
-    gotoxy(33, 6);
+    gotoxy(33, 8);
     printf("######################             ####################\n");
     for (int i = 0; i < 8; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(34, 15);
+    gotoxy(34, 17);
     printf("#####################             ###################\n");
-    gotoxy(40, 11);
+    gotoxy(40, 13);
     printf("USER ID  :");
-    gotoxy(40, 12);
+    gotoxy(40, 14);
     printf("PASSWORD :");
-    gotoxy(50, 11);
+    gotoxy(50, 13);
     scanf("%lld", userid);
-    gotoxy(50, 12);
+    gotoxy(50, 14);
     scanf("%s", pass);
 }
 void menuframe()
 {
     system("cls");
     gotoxy(25, 3);
-    printf("###############################             ############################\n");
+    printf("###############################             ##########################  \n");
     for (int i = 0; i < 20; i++)
         printf("\t\t\t#\t\t\t\t\t\t\t\t\t#\n");
     gotoxy(25, 24);
-    printf("###############################             ############################\n");
+    printf("###############################             ##########################  \n");
 }
 void h_light_main_menu(int option)
 {
@@ -1897,19 +1895,20 @@ void data_entry_frame(char ch[], char data[])
 }
 void h_light_student_update_helper_frame()
 {
+    fflush(stdin);
     int i;
     system("cls");
     gotoxy(48, 6);
-    printf(" ***SEE INFORMATION****");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    printf(" ***UPDATE INFORMATION****");
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 22; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
     gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    printf("  #######################              #######################   \n");
 }
 void h_light_student_update_frame(int option, struct student ob)
 {
@@ -1992,19 +1991,20 @@ void h_light_student_update_frame(int option, struct student ob)
 }
 void h_light_employee_update_helper_frame()
 {
+    fflush(stdin);
     int i;
     system("cls");
     gotoxy(48, 6);
-    printf(" ***SEE INFORMATION****");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    printf(" ***UPDATE INFORMATION****");
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 22; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
     gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    printf("  #######################              #######################   \n");
 }
 
 void h_light_employee_update_frame(int option, struct EMPLOYEE ob)
@@ -2094,19 +2094,20 @@ void h_light_employee_update_frame(int option, struct EMPLOYEE ob)
 }
 void h_light_teacher_update_helper_frame()
 {
+    fflush(stdin);
     int i;
     system("cls");
     gotoxy(48, 6);
-    printf(" ***SEE INFORMATION****");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    printf(" ***UPDATE INFORMATION****");
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 22; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
     gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    printf("  #######################              #######################   \n");
 }
 void h_light_teacher_update_frame(int option, struct teacher ob)
 {
@@ -2436,7 +2437,7 @@ void h_light_Teacher_menu(int option)
         break;
     case 4:
         gotoxy(x, 13);
-        printf("-> UPDATE STUDENT RESULTS ");
+        printf("-> UPDATE STUDENTUPDATE STUDENT RESULTS ");
         break;
     case 5:
         gotoxy(x, 14);
@@ -2886,7 +2887,7 @@ void teacherfunction()
         case 72:
             option--;
             if (option == 0)
-                option = 4;
+                option = 5;
             break;
         }
 
