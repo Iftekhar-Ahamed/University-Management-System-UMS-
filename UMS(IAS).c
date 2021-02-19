@@ -492,15 +492,15 @@ void seeemployeedataFrame(struct EMPLOYEE ob)
     system("cls");
     gotoxy(48, 6);
     printf(" ***SEE YOUR INFORMATION***");
-    gotoxy(27, 2);
-    printf("#########################              ######################### \n");
-    for (i = 1; i < 23; i++)
+    gotoxy(27, 4);
+    printf("  #######################              #######################   \n");
+    for (i = 1; i < 21; i++)
     {
-        gotoxy(27, 2 + i);
+        gotoxy(27, 4 + i);
         printf("#\t\t\t\t\t\t\t\t  #");
     }
-    gotoxy(27, 25);
-    printf("#########################              ######################### \n");
+    gotoxy(27, 24);
+    printf("  #######################              #######################   \n");
 
     gotoxy(34, 10);
     printf("[1] NAME          : %s %s\n", ob.name1, ob.name2);
@@ -1156,13 +1156,13 @@ void h_light_teacher_function_menu(int option)
 void employeeframe()
 {
     system("cls");
-    gotoxy(55, 8);
+    gotoxy(55, 12);
     printf("  WELCOME EMPLOYEE");
-    gotoxy(32, 6);
+    gotoxy(32, 10);
     printf(" #########################             ########################\n");
     for (int i = 0; i < 8; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t\t#\n");
-    gotoxy(32, 15);
+    gotoxy(32, 19);
     printf(" #########################             ########################\n");
 }
 void employee_section_frame()
@@ -1646,15 +1646,15 @@ int mid_final_viva()
     fflush(stdin);
     int option;
     system("cls");
-    gotoxy(34, 6);
+    gotoxy(34, 10);
     printf("######################            ####################\n");
     for (int i = 0; i < 8; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(34, 15);
+    gotoxy(34, 19);
     printf("#####################             ###################\n");
-    gotoxy(38, 10);
+    gotoxy(38, 14);
     printf("[1] MID TERM.   [2] FINAL TERM.   [3] V/P/A. ");
-    gotoxy(54, 12);
+    gotoxy(54, 16);
     printf("ENTER OPTION :");
     scanf("%d", &option);
     if (option <= 0 || option >= 4)
@@ -1669,13 +1669,13 @@ void change_mark(char status[], double *mark)
     fflush(stdin);
     double m;
     system("cls");
-    gotoxy(34, 6);
+    gotoxy(34, 11);
     printf("######################            ####################\n");
     for (int i = 0; i < 6; i++)
         printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(34, 13);
+    gotoxy(34, 18);
     printf("#####################             ###################\n");
-    gotoxy(38, 10);
+    gotoxy(38, 15);
     printf("%s ", status);
     scanf("%lf", &m);
     *mark = m;
@@ -2232,24 +2232,24 @@ void sucessfullychangepass()
 }
 void h_light_employee_menu(int option)
 {
-    gotoxy(45, 11);
+    gotoxy(45, 15);
     printf("INFORMETION             ");
-    gotoxy(45, 12);
+    gotoxy(45, 16);
     printf("PASSWOARD               ");
-    gotoxy(45, 13);
+    gotoxy(45, 17);
     printf("Exit                    ");
     switch (option)
     {
     case 1:
-        gotoxy(45, 11);
+        gotoxy(45, 15);
         printf("-> SEE YOUR INFORMETION ");
         break;
     case 2:
-        gotoxy(45, 12);
+        gotoxy(45, 16);
         printf("-> CHANGE YOUR PASSWOARD");
         break;
     case 3:
-        gotoxy(45, 13);
+        gotoxy(45, 17);
         printf("-> EXIT FROM EMPLOYEE   ");
         break;
     }
@@ -2437,7 +2437,7 @@ void h_light_Teacher_menu(int option)
         break;
     case 4:
         gotoxy(x, 13);
-        printf("-> UPDATE STUDENTUPDATE STUDENT RESULTS ");
+        printf("-> UPDATE STUDENT RESULTS ");
         break;
     case 5:
         gotoxy(x, 14);
@@ -3819,31 +3819,31 @@ void message_list(struct messege ob[], int n, char type[])
         strcat(sender_name, ob.name2);
     }
     int option;
-    gotoxy(47, 9);
+    gotoxy(54, 11);
     puts("**MESSAGES**");
-    gotoxy(25, 6);
+    gotoxy(32, 9);
     printf("######################             ####################\n");
     for (int i = 0; i < n + 8; i++)
-        printf("\t\t\t#\t\t\t\t\t\t\t#\n");
-    gotoxy(25, n + 15);
+        printf("\t\t\t      #\t\t\t\t\t\t\t        #\n");
+    gotoxy(32, n + 18);
     printf(" #####################             #################### \n");
     int j = 0, i, k = 1;
-    for (i = 11, j = 0; i < n + 11; i++, k++)
+    for (i = 13, j = 0; i < n + 13; i++, k++)
     {
 
-        gotoxy(40, i);
-        if (comparepassForStudentTeacherEmployee(sender_name, ob[i - 11].name1))
+        gotoxy(47, i);
+        if (comparepassForStudentTeacherEmployee(sender_name, ob[i - 13].name1))
         {
-            printf("[%.2d] %s\n", k, ob[i - 11].name2);
+            printf("[%.2d] %s\n", k, ob[k-1].name2);
         }
         else
         {
-            printf("[%.2d] %s\n", k, ob[i - 11].name1);
+            printf("[%.2d] %s\n", k, ob[k-1].name1);
         }
     }
-    gotoxy(40, i);
-    printf("[%.2d] EXIT.\n", k);
-    gotoxy(44, i + 2);
+    gotoxy(47, i);
+    printf("[%.2d] EXIT", k);
+    gotoxy(51, i + 3);
     printf("ENTER YOUR OPTION :");
     scanf("%d", &option);
     if (option > n + 1 || option < 1)
