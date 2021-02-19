@@ -5,6 +5,9 @@
 #include <conio.h>
 #include <dirent.h>
 #include <stdbool.h>
+#define normal() system("color 30")
+#define faild() system("color 47")
+#define sucess() system("color 20")
 
 //vriable
 int len_max;
@@ -43,6 +46,7 @@ struct notice
 };
 
 //functions heading
+void cannotfindid();
 void view_all_notice();
 void gotoxy(int x, int y);
 void clean_string(char s[], int n);
@@ -65,6 +69,7 @@ void seeemployeedataFrame(struct EMPLOYEE ob);
 void after_save_frame(char id[], char name1[], char name2[], char gender[], char dob[], char admit[]);
 int enter_id_frame();
 void after_delete_frame(char id[], char name1[], char name2[], char gender[], char dob[], char admit[]);
+void sucess_delete_frame(char id[], char name1[], char name2[], char gender[], char dob[], char admit[]);
 void want_to_frame_front();
 void h_light_want_to_save_menu(int option);
 bool wantTosaveframe();
@@ -219,10 +224,11 @@ void make_result_sheet();
 void Teacher();
 void main_menu();
 bool new_or_old();
+void get_paragraph(char body[],int n);
 
 int main()
 {
-    //system("color 30");
+    normal();
     new_or_old();
     loading();
     main_menu();
@@ -345,10 +351,25 @@ int stringtoint(char num[])
     }
     return result;
 }
+void cannotfindid()
+{
+    system("cls");
+    faild();
+    gotoxy(34, 8);
+    printf("#####################            ####################\n");
+    for (int i = 0; i < 8; i++)
+        printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
+    gotoxy(34, 17);
+    printf("#####################             ###################\n");
+    gotoxy(48, 12);
+    printf("NO ID FOUND... :(");
+    fflush(stdout);
+    Sleep(1500);
+    normal();
+}
 void wrong_selection()
 {
     system("cls");
-    system("color 40");
     gotoxy(34, 8);
     printf("#####################            ####################\n");
     for (int i = 0; i < 8; i++)
@@ -530,6 +551,7 @@ void after_save_frame(char id[], char name1[], char name2[], char gender[], char
 {
     system("cls");
     fflush(stdin);
+    sucess();
     gotoxy(34, 6);
     printf("######################            ####################\n");
     for (int i = 0; i < 10; i++)
@@ -551,6 +573,7 @@ void after_save_frame(char id[], char name1[], char name2[], char gender[], char
     gotoxy(50, 15);
     printf("Press enter to continue");
     getchar();
+    normal();
 }
 
 int enter_id_frame()
@@ -589,7 +612,7 @@ void after_delete_frame(char id[], char name1[], char name2[], char gender[], ch
     gotoxy(34, 17);
     printf("#####################             ###################\n");
     gotoxy(53, 8);
-    printf("Successfully deleted..");
+    printf("PERSONAL DATA....");
     gotoxy(35, 10);
     printf("Name  : %s %s", name1, name2);
     gotoxy(73, 10);
@@ -603,6 +626,34 @@ void after_delete_frame(char id[], char name1[], char name2[], char gender[], ch
     gotoxy(50, 15);
     printf("Press enter to continue");
     getchar();
+}
+void sucess_delete_frame(char id[], char name1[], char name2[], char gender[], char dob[], char admit[])
+{
+    system("cls");
+    fflush(stdin);
+    sucess();
+    gotoxy(34, 6);
+    printf("######################            ####################\n");
+    for (int i = 0; i < 10; i++)
+        printf("\t\t\t\t#\t\t\t\t\t\t\t#\n");
+    gotoxy(34, 17);
+    printf("#####################             ###################\n");
+    gotoxy(53, 8);
+    printf("SUCESSFULLY DELETED ");
+    gotoxy(35, 10);
+    printf("Name  : %s %s", name1, name2);
+    gotoxy(73, 10);
+    printf("Gender: %s", gender);
+    gotoxy(35, 11);
+    printf("DOB   : %s", dob);
+    gotoxy(35, 12);
+    printf("ID    : %s (Note Your id.It's important)", id);
+    gotoxy(35, 13);
+    printf("J/D   : %s", admit);
+    gotoxy(50, 15);
+    printf("Press enter to continue");
+    getchar();
+    normal();
 }
 void want_to_frame_front()
 {
@@ -989,6 +1040,7 @@ void h_light_try_agin_menu(int option)
 bool try_agin()
 {
     fflush(stdin);
+    faild();
     try_agin_frame();
     int option = 1;
     char ch = '0';
@@ -1016,8 +1068,10 @@ bool try_agin()
             switch (option)
             {
             case 1:
+                normal();
                 return true;
             case 2:
+                normal();
                 return false;
             default:
                 return try_agin();
@@ -1540,6 +1594,7 @@ void course_registration_tryleaterFrame()
 void sucessfullysaveframe()
 {
     system("cls");
+    sucess();
     gotoxy(34, 6);
     printf("######################            ####################\n");
     for (int i = 0; i < 8; i++)
@@ -1549,9 +1604,11 @@ void sucessfullysaveframe()
     gotoxy(45, 12);
     printf("SUCESSFULLY ADDED...");
     Sleep(1800);
+    normal();
 }
 void sucessfullysendframe()
 {
+    sucess();
     system("cls");
     gotoxy(34, 6);
     printf("######################            ####################\n");
@@ -1562,6 +1619,7 @@ void sucessfullysendframe()
     gotoxy(45, 12);
     printf("SUCESSFULLY SEND...");
     Sleep(1800);
+    normal();
 }
 void select_course_frame(struct subject ob[], int n, struct subject ob2[], int *x)
 {
@@ -2363,12 +2421,22 @@ void date_hading_frame(char date[], char heading[])
     gotoxy(38 + 16, 16);
     gets(heading);
 }
+void get_paragraph(char body[],int n)
+{
+    int i=0;
+    body[i]=' ';
+    while(scanf("%c",&body[i])!=EOF &&i<n)
+    {
+        i++;
+    }
+    body[i]='\0';
+}
 void write_notice(char body[])
 {
     system("cls");
     fflush(stdin);
-    printf("\t\t\t\t\t\tWRITE YOUR NOTICE :)\nSTART WRITING :- ");
-    gets(body);
+    printf("\t\t\t\t\t\tWRITE YOUR NOTICE :)\nSTART WRITING :-\n");
+    get_paragraph(body,9999);
 }
 void h_light_notice_section(int option)
 {
@@ -2825,7 +2893,7 @@ void tdeleteid(char m[], char a1[], char a2[], char a3[])
 
         closedir(folder);
         rmdir(m);
-        after_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
+        sucess_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
     }
     return Admin();
 }
@@ -2861,10 +2929,24 @@ void searchTeacher()
     genarete_address_from_id(type, co, adress);
     strcat(adress, "//pd.txt");
 
-    struct teacher ob;
-    ob = tread_single_pd(adress);
 
-    seeteacherdataFrame(ob);
+    struct teacher ob;
+
+
+    FILE *ptr;
+    ptr=fopen(adress,"r");
+
+    if(ptr!=NULL)
+    {
+        fclose(ptr);
+        ob = tread_single_pd(adress);
+        seeteacherdataFrame(ob);
+    }
+    else
+    {
+        cannotfindid();
+        fclose(ptr);
+    }
 
     return teacherfunction();
 }
@@ -3121,7 +3203,7 @@ void sdeleteid(char m[], char a1[])
 
         closedir(folder);
         rmdir(m);
-        after_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
+        sucess_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
     }
     return Admin();
 }
@@ -3155,11 +3237,21 @@ void searchstudent()
     sprintf(co, "%d", id);
     genarete_address_from_id(type, co, adress);
     strcat(adress, "//pd.txt");
-
+    FILE *ptr=fopen(adress,"r");
     struct student ob;
-    ob = sread_single_pd(adress);
 
-    seestudentdataFrame(ob);
+    if(ptr!=NULL)
+    {
+        fclose(ptr);
+        ob = sread_single_pd(adress);
+
+        seestudentdataFrame(ob);
+    }
+    else
+    {
+        fclose(ptr);
+        cannotfindid();
+    }
 
     return studentfunction();
 }
@@ -3440,7 +3532,7 @@ void edeleteid(char m[], char a1[], char a2[], char a3[])
 
         closedir(folder);
         rmdir(m);
-        after_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
+        sucess_delete_frame(ob.id, ob.name1, ob.name2, ob.gender, ob.dob, ob.joiningdate);
     }
     return Admin();
 }
@@ -3476,10 +3568,22 @@ void searchemployee()
     genarete_address_from_id(type, co, adress);
     strcat(adress, "//pd.txt");
 
-    struct EMPLOYEE ob;
-    ob = eread_single_pd(adress);
+    FILE *ptr=fopen(adress,"r");
 
-    seeemployeedataFrame(ob);
+    struct EMPLOYEE ob;
+
+    if(ptr!=NULL)
+    {
+        fclose(ptr);
+        ob = eread_single_pd(adress);
+
+        seeemployeedataFrame(ob);
+    }
+    else
+    {
+        fclose(ptr);
+        cannotfindid();
+    }
 
     return employeefunction();
 }
@@ -4897,11 +5001,19 @@ void teachersearchstudent()
     sprintf(co, "%d", id);
     genarete_address_from_id(type, co, adress);
     strcat(adress, "//pd.txt");
+    FILE *ptr=fopen(adress,"r");
 
     struct student ob;
-    ob = sread_single_pd(adress);
 
-    seestudentdataFrame(ob);
+    if(ptr!=NULL){
+        fclose(ptr);
+        ob = sread_single_pd(adress);
+
+        seestudentdataFrame(ob);
+    }else{
+        fclose(ptr);
+        cannotfindid();
+    }
 
     return Teacher();
 }
