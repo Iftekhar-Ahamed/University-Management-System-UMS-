@@ -46,6 +46,7 @@ struct notice
 };
 
 //functions heading
+void get_pass(char pass[]);
 void cannotfindid();
 void view_all_notice();
 void gotoxy(int x, int y);
@@ -267,6 +268,21 @@ bool age_ki_input_dice(struct subject ob[], int n, int scode)
             return true;
     }
     return false;
+}
+void get_pass(char pass[])
+{
+    fflush(stdin);
+    int i=0;
+    char ch=' ';
+    while(1)
+    {
+        ch=getch();
+        if(ch==13)break;
+        pass [i] = ch;
+        i++;
+        printf("*");
+    }
+    pass[i]='\0';
 }
 bool ase_naki_subject_code(struct subject ob[], int n, int scode)
 {
@@ -1397,7 +1413,7 @@ void longinframe(char pass[], long long int *userid)
     gotoxy(50, 13);
     scanf("%lld", userid);
     gotoxy(50, 14);
-    scanf("%s", pass);
+    get_pass(pass);
 }
 void menuframe()
 {
