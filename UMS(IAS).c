@@ -2439,13 +2439,7 @@ void date_hading_frame(char date[], char heading[])
 }
 void get_paragraph(char body[],int n)
 {
-    int i=0;
-    body[i]=' ';
-    while(scanf("%c",&body[i])!=EOF &&i<n)
-    {
-        i++;
-    }
-    body[i]='\0';
+    scanf("%[^\t]s", body);
 }
 void write_notice(char body[])
 {
