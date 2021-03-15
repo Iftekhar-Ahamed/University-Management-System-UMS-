@@ -231,6 +231,7 @@ int main()
 {
     normal();
     new_or_old();
+    system("cls");
     loading();
     main_menu();
     getchar();
@@ -952,7 +953,7 @@ void currtent_course_frame(struct subject ob[], int n)
     fflush(stdin);
     system("cls");
     gotoxy(47, 9);
-    puts("**CURRTENT COURCES**");
+    puts("**CURRENT COURCES**");
     gotoxy(25, 6);
     printf("##########################             ########################\n");
     for (int i = 0; i < n + 6; i++)
@@ -974,7 +975,7 @@ void academic_frame(struct result_subject ob[], int n)
     fflush(stdin);
     system("cls");
     gotoxy(47, 8);
-    puts("    **CURRTENT COURCES**");
+    puts("    **CURRENT COURCES**");
     gotoxy(18, 6);
     printf("######################################                ##############################\n");
     for (int i = 0; i < n + 7; i++)
@@ -1311,7 +1312,7 @@ void h_light_Student_menu(int option)
     gotoxy(x, 14);
     printf("MESSENGER               ");
     gotoxy(x, 15);
-    printf("PASSWOARD               ");
+    printf("PASSWORD               ");
     gotoxy(x, 16);
     printf("EXIT                    ");
     switch (option)
@@ -1330,7 +1331,7 @@ void h_light_Student_menu(int option)
         break;
     case 4:
         gotoxy(x, 13);
-        printf("->SEE YOUR ALL RSULTS  ");
+        printf("->SEE YOUR ALL RESULTS  ");
         break;
     case 5:
         gotoxy(x, 14);
@@ -1338,7 +1339,7 @@ void h_light_Student_menu(int option)
         break;
     case 6:
         gotoxy(x, 15);
-        printf("->CHANGE YOUR PASSWOARD");
+        printf("->CHANGE YOUR PASSWORD");
         break;
     case 7:
         gotoxy(x, 16);
@@ -2301,26 +2302,26 @@ void sucessfullychangepass()
     gotoxy(34, 15);
     printf("#####################             ###################\n");
     gotoxy(45, 12);
-    printf("SUCESSFULLY CHANGED PASSWOARD..");
+    printf("SUCESSFULLY CHANGED PASSWORD..");
     Sleep(1800);
 }
 void h_light_employee_menu(int option)
 {
     gotoxy(45, 15);
-    printf("INFORMETION             ");
+    printf("INFORMATION             ");
     gotoxy(45, 16);
-    printf("PASSWOARD               ");
+    printf("PASSWORD               ");
     gotoxy(45, 17);
     printf("Exit                    ");
     switch (option)
     {
     case 1:
         gotoxy(45, 15);
-        printf("-> SEE YOUR INFORMETION ");
+        printf("-> SEE YOUR INFORMATION ");
         break;
     case 2:
         gotoxy(45, 16);
-        printf("-> CHANGE YOUR PASSWOARD");
+        printf("-> CHANGE YOUR PASSWORD");
         break;
     case 3:
         gotoxy(45, 17);
@@ -2431,7 +2432,7 @@ void date_hading_frame(char date[], char heading[])
     gotoxy(38, 14);
     printf("ENTER DATE    : ");
     gotoxy(38, 16);
-    printf("ENTER SUBJRCT : ");
+    printf("ENTER SUBJECT : ");
     gotoxy(38 + 16, 14);
     gets(date);
     gotoxy(38 + 16, 16);
@@ -2481,7 +2482,7 @@ void h_light_Teacher_menu(int option)
 {
     int x = 50;
     gotoxy(x, 10);
-    printf("INFORMETION               ");
+    printf("INFORMATION               ");
     gotoxy(x, 11);
     printf("RESULT                    ");
     gotoxy(x, 12);
@@ -2495,7 +2496,7 @@ void h_light_Teacher_menu(int option)
     gotoxy(x, 16);
     printf("RESULT SHEET              ");
     gotoxy(x, 17);
-    printf("PASSWOARD                 ");
+    printf("PASSWORD                 ");
     gotoxy(x, 18);
     printf("EXIT                      ");
 
@@ -2503,7 +2504,7 @@ void h_light_Teacher_menu(int option)
     {
     case 1:
         gotoxy(x, 10);
-        printf("-> SEE YOUR INFORMETION   ");
+        printf("-> SEE YOUR INFORMATION   ");
         break;
     case 2:
         gotoxy(x, 11);
@@ -2531,7 +2532,7 @@ void h_light_Teacher_menu(int option)
         break;
     case 8:
         gotoxy(x, 17);
-        printf("-> CHANGE YOUR PASSWOARD  ");
+        printf("-> CHANGE YOUR PASSWORD  ");
         break;
     case 9:
         gotoxy(x, 18);
